@@ -131,7 +131,23 @@ def download_imgs(img_urls,img_url_key,img_url_local_key,save_dir,table):
                             
                             imgs_not_downloaded[ks] = {img_url_key:img_link} #save the undownloaded img link
                 else: ## if img is None,save to avoid searching again
-                    imgs_not_downloaded[ks] = {img_url_key:None}
+                    imgs_downloaded[ks] = {img_url_key:None,
+                                          img_url_local_key:None}
                     
     return imgs_downloaded,imgs_not_downloaded
+
+def save_to_db(content_urls_con,preview_urls_con):
+    
+    '''save downloaded content and preview to dataframe'''
+#     preview_urls_con
+    
+#     preview_urls = {key:val for x in preview_urls_con for key,val in x.items()}
+#     content_urls = {key:val for x in content_urls_con for key,val in x.items()}
+    
+    preview_df = pd.DataFrame(preview_urls).T.reset_index()
+    content_df = pd.DataFrame(content_urls).T.reset_index()
+    merged_df = pd.merge(content_df,preview_df,on='index')
+    
+    merged_df.columns = ['orig_id','title_img_link','title_img_local','preview_img_link','preview_img_local']
+    merged_df.columns.to_sql(img_table,engine,if_exists='append')
     

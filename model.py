@@ -28,6 +28,7 @@ class ImagesUrl(Base):
     preview_img_location = Column(String(1024))
     img_urls_location= Column(String(2048))
 
+
 def create_table(engine):
     Base.metadata.create_all(engine)
 
