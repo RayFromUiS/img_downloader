@@ -43,6 +43,6 @@ if __name__=='__main__':
                                                            content_save_dir,table)
 #         content_urls_con.append(imgs_downloaded)
 #         content_urls_not_con.append(imgs_not_downloaded)
-        save_to_db(content_imgs_downloaded,preview_imgs_downloaded)
+        save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
     
         

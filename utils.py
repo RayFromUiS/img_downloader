@@ -98,7 +98,7 @@ def get_preview_imgs_url(table, engine, preview_imgs_urls):
     return not_down_previews
 
 
-def download_imgs(img_urls,img_url_key,img_url_local_key,save_dir,table):
+def download_imgs(img_urls,img_url_key,img_url_local_key,preview_save_dir,table):
     '''download imgs
         img_url_key:'preview_img_link'
         img_url_local_key:'preview_img_local'
@@ -136,7 +136,7 @@ def download_imgs(img_urls,img_url_key,img_url_local_key,save_dir,table):
                     
     return imgs_downloaded,imgs_not_downloaded
 
-def save_to_db(content_urls_con,preview_urls_con):
+def save_to_db(content_urls,preview_urls,img_table,engine):
     
     '''save downloaded content and preview to dataframe'''
 #     preview_urls_con
