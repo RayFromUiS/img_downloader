@@ -98,7 +98,7 @@ def get_preview_imgs_url(table, engine, preview_imgs_urls):
     return not_down_previews
 
 
-def download_imgs(img_urls,img_url_key,img_url_local_key,preview_save_dir,table):
+def download_imgs(img_urls,img_url_key,img_url_local_key,save_dir,table):
     '''download imgs
         img_url_key:'preview_img_link'
         img_url_local_key:'preview_img_local'
@@ -115,7 +115,7 @@ def download_imgs(img_urls,img_url_key,img_url_local_key,preview_save_dir,table)
                 if img_link: ##if there is link from img element
                     if not os.path.exists(os.path.join(save_dir,table)):
                         os.mkdir(os.path.join(save_dir,table))
-                    img_file = os.path.join(preview_save_dir,table,ks+'____'+img_link.split('/')[-1])
+                    img_file = os.path.join(save_dir,table,ks+'____'+img_link.split('/')[-1])
                     if  not os.path.exists(img_file): #check file already downloaded
                         try: ## try to download the img file and save it
                             res = req.get(url=img_link,
