@@ -8,8 +8,8 @@ from utils import  grap_preview_imgs_urls,grap_content_imgs_urls,get_preview_img
 
 if __name__=='__main__':
     
-    table_name_pro = ['news_oil_oe_pro','world_oil_pro','hart_energy_pro','cnpc_news_pro','oilfield_tech_pro',\
-            'oil_and_gas_pro','in_en_storage_pro','jpt_latest_pro','energy_voice_pro','gulf_oil_gas_pro',\
+    table_name_pro =['in_en_storage_pro','news_oil_oe_pro','world_oil_pro','hart_energy_pro','cnpc_news_pro','oilfield_tech_pro',\
+            'oil_and_gas_pro','jpt_latest_pro','energy_voice_pro','gulf_oil_gas_pro',\
             'energy_pedia_pro','up_stream_pro','oil_price_pro','inen_tech_pro','inen_newenergy_pro',\
             'drill_contractor_pro','rog_tech_pro','natural_gas_pro','rig_zone_pro','offshore_tech_pro',
                   'jwn_energy_pro',
@@ -17,8 +17,8 @@ if __name__=='__main__':
     uri = 'mysql+pymysql://root:jinzheng1706@139.198.191.224:3308/news_oil'
     engine = db_connect(uri)
     create_table(engine)
-    preview_save_dir = '/mnt/news_img_dir/preview_imgs'
-    content_save_dir = '/mnt/news_img_dir/content_imgs'
+    preview_save_dir = '/Users/root1/mnt/news_img_dir/preview_imgs'
+    content_save_dir = '/Users/root1/mnt/news_img_dir/content_imgs'
     img_table='imgs_location'
     content_urls_con = [] #list for saving all the table procssed content img
     content_urls_not_con = []
@@ -44,5 +44,6 @@ if __name__=='__main__':
 #         content_urls_con.append(imgs_downloaded)
 #         content_urls_not_con.append(imgs_not_downloaded)
         save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
-    
+        break
+        
         

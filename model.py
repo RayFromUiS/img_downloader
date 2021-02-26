@@ -21,12 +21,12 @@ def db_connect(uri):
 class ImagesUrl(Base):
     __tablename__ = 'imgs_location'
     id = Column(Integer, primary_key=True)
-    orig_id = Column(Integer)
-    title = Column(String(1024))
+    orig_id = Column(String(1024))
+    # title = Column(String(1024))
     preview_img_link = Column(String(2048))
-    img_urls_new = Column(String(4096))
-    preview_img_location = Column(String(1024))
-    img_urls_location= Column(String(2048))
+    title_img_url = Column(String(4096))
+    preview_img_local = Column(String(1024))
+    title_img_local= Column(String(2048))
 
 
 def create_table(engine):
