@@ -10,8 +10,8 @@ if __name__=='__main__':
     uri = 'mysql+pymysql://root:jinzheng1706@139.198.191.224:3308/news_oil'
     engine = db_connect(uri)
     create_table(engine)
-    preview_save_dir = '/mnt/img_dir/preview_imgs'
-    content_save_dir = '/mnt/img_dir/content_imgs'
+    preview_save_dir = '/mnt/news_img_dir/preview_imgs'
+    content_save_dir = '/mnt/news_img_dir/content_imgs'
     img_table='imgs_location'
     content_urls_con = [] #list for saving all the table procssed content img
     content_urls_not_con = []
