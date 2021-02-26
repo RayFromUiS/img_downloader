@@ -29,7 +29,7 @@ if __name__=='__main__':
     for table in table_name_pro:
 #         ua = UserAgent()
 #         user_agent = ua.ie
-#         not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
+        not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
         preview_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_preview,
                                                             'preview_img_link','preview_img_local',preview_save_dir,table)
 #         preview_urls_con.append(imgs_downloaded)
