@@ -36,6 +36,6 @@ if __name__=='__main__':
                                                            content_save_dir,table)
 
         save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
-        break
+        # break
         
         
