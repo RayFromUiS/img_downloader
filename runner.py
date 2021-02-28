@@ -30,12 +30,13 @@ if __name__=='__main__':
         not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
         preview_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_preview,
                                                             'preview_img_link','preview_img_local',preview_save_dir,table)
-
+        print(f'finished downloading preview of {table}')
         not_down_content =  get_content_imgs_url(table, engine, content_imgs_urls)
         content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',
                                                            content_save_dir,table)
-
+        print(f'finished downloading content imgs of {table}')
         save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
+        print(f'saved imges imgs of {table}')
         # break
         
         
