@@ -25,12 +25,15 @@ if __name__=='__main__':
     preview_urls_con = [] # list for preview img url to 
     preview_urls_not_con = []
     preview_imgs_urls = grap_preview_imgs_urls(img_table, engine) #noprocessed preview urls
+    print('length of preview imgs urls', len(preview_imgs_urls))
     content_imgs_urls = grap_content_imgs_urls(img_table, engine) #nonprocessed content url
+    print('length of content imgs urls', len(content_imgs_urls))
     for table in table_name_pro:
         not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
+        print('have not downloading files',len(not_down_preview))
         preview_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_preview,
                                                             'preview_img_link','preview_img_local',preview_save_dir,table)
-        print(f'finished downloading preview of {table}')
+        print(f'finished downloading preview of {table}',f'downloaded {len(preview_imgs_downloaded)}')
         not_down_content =  get_content_imgs_url(table, engine, content_imgs_urls)
         content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',
                                                            content_save_dir,table)
