@@ -144,9 +144,10 @@ def download_imgs(img_urls,img_url_key,img_url_local_key,save_dir,table):
                                                       img_url_local_key:img_file}
     #                             print('finish downloading')
                             except: ## couldn't downloaded it
+                                imgs_not_downloaded[ks] = {img_url_key: img_link}  #save the undownloaded img link
                                 continue
 
-                                imgs_not_downloaded[ks] = {img_url_key:img_link} #save the undownloaded img link
+
             # print(img_links)
             else: ## if img is None,save to avoid searching again
                 # print(img_links)
