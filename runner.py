@@ -25,14 +25,14 @@ if __name__=='__main__':
     preview_urls_con = [] # list for preview img url to 
     preview_urls_not_con = []
     preview_imgs_urls = grap_preview_imgs_urls(img_table, engine) #noprocessed preview urls
-    len('have scaned rows',len(preview_imgs_urls))
+    print('have scaned rows',len(preview_imgs_urls))
     content_imgs_urls = grap_content_imgs_urls(img_table, engine) #nonprocessed content url
-    len('have scaned rows',len(content_imgs_urls))
+    print('have scaned rows',len(content_imgs_urls))
     for table in table_name_pro:
 #         ua = UserAgent()
 #         user_agent = ua.ie
         not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
-        len('have not down rows',len(not_down_preview))
+        print('have not down rows',len(not_down_preview))
         preview_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_preview,
                                                             'preview_img_link','preview_img_local',preview_save_dir,table)
         print('have downloade preview rows ',len(preview_imgs_downloaded))
@@ -43,7 +43,7 @@ if __name__=='__main__':
 #         ua = UserAgent()
 #         user_agent = ua.ie
         not_down_content =  get_content_imgs_url(table, engine, content_imgs_urls)
-        len('have not down rows',len(not_down_content))
+        print('have not down rows',len(not_down_content))
         content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',
                                                            content_save_dir,table)
         print('have downloade contents rows ',len(content_imgs_downloaded))
