@@ -26,8 +26,8 @@ def grap_preview_imgs_urls(img_table, engine):
         preview_img_locals.append(row.preview_img_local)
         img_url['preview_img_link'] = prview_img_links
         img_url['preview_img_local'] = preview_img_locals
-        if not preview_imgs_urls.get(row.orig_id):
-            preview_imgs_urls[row.orig_id] = img_url
+        # if not preview_imgs_urls.get(row.orig_id):
+        preview_imgs_urls[row.orig_id] = img_url
 
     return preview_imgs_urls
 
@@ -45,8 +45,8 @@ def grap_content_imgs_urls(table, engine):
         img_url = {}
         img_url['title_img_url'] = row.title_img_url
         img_url['title_img_local'] = row.title_img_local
-        if not content_imgs_urls.get(row.orig_id):
-            content_imgs_urls[row.orig_id] = img_url
+        # if not content_imgs_urls.get(row.orig_id):
+        content_imgs_urls[row.orig_id] = img_url
 
     return content_imgs_urls
 
