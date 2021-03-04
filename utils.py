@@ -92,6 +92,7 @@ def get_preview_imgs_url(table, engine, preview_imgs_urls):
 
     not_down_previews = {}
     ori_df = pd.read_sql_table(table, engine, columns=['id', 'title', 'preview_img_link'])
+    ori_df.dropna(subset=['id'],inplace=True)
     ori_df_imgs = ori_df['preview_img_link']
     for _id, title, img in zip(ori_df['id'].values, ori_df['title'].values, ori_df_imgs.values):
         #     print(_id,title,img,type(title),type(img))
