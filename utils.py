@@ -56,6 +56,7 @@ def get_content_imgs_url(table, engine, content_imgs_urls):
     '''
     not_down_content = {}
     ori_df = pd.read_sql_table(table, engine, columns=['id', 'title', 'new_content'])
+    ori_df.dropna(subset=['id'], inplace=True)
 #     ori_df_imgs = ori_df['new_content'].apply(lambda x: BeautifulSoup(x).find_all('img'))
     ori_df_imgs = ori_df['new_content']
     for _id, title, imgs in zip(ori_df['id'].values, ori_df['title'].values, ori_df_imgs.values):
