@@ -18,8 +18,8 @@ if __name__=='__main__':
     uri = 'mysql+pymysql://root:jinzheng1706@139.198.191.224:3308/news_oil'
     engine = db_connect(uri)
     create_table(engine)
-    preview_save_dir = '/mnt/news_img_dir/preview_imgs'
-    content_save_dir = '/mnt/news_img_dir/content_imgs'
+    preview_save_dir = '/Users/root1/mnt/news_img_dir/preview_imgs'
+    content_save_dir = '/Users/root1/mnt/news_img_dir/content_imgs'
     img_table='imgs_location'
     content_urls_con = [] #list for saving all the table procssed content img
     content_urls_not_con = []
@@ -45,11 +45,11 @@ if __name__=='__main__':
 #         user_agent = ua.ie
         not_down_content =  get_content_imgs_url(table, engine, content_imgs_urls)
         print('have not down rows',len(not_down_content))
-        content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',
+        content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',\
                                                            content_save_dir,table)
         print('have downloade contents rows ',len(content_imgs_downloaded))
 #         content_urls_con.append(imgs_downloaded)
 #         content_urls_not_con.append(imgs_not_downloaded)
-        save_to_db(content_imgs_downloaded,preview_imgs_downloaded)
+        save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
     
         
