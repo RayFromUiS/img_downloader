@@ -32,24 +32,27 @@ if __name__=='__main__':
     for table in table_name_pro:
 #         ua = UserAgent()
 #         user_agent = ua.ie
-        not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
-        print('have not down rows',len(not_down_preview))
-        preview_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_preview,
-                                                            'preview_img_link','preview_img_local',preview_save_dir,table)
-        print('have downloade preview rows ',len(preview_imgs_downloaded))
-        #         preview_urls_con.append(imgs_downloaded)
-#         preview_urls_not_con.append(imgs_not_downloaded)
-        
+        try:
+            not_down_preview = get_preview_imgs_url(table, engine, preview_imgs_urls)
+            print('have not down rows',len(not_down_preview))
+            preview_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_preview,
+                                                                'preview_img_link','preview_img_local',preview_save_dir,table)
+            print('have downloade preview rows ',len(preview_imgs_downloaded))
+            #         preview_urls_con.append(imgs_downloaded)
+    #         preview_urls_not_con.append(imgs_not_downloaded)
 
-#         ua = UserAgent()
-#         user_agent = ua.ie
-        not_down_content =  get_content_imgs_url(table, engine, content_imgs_urls)
-        print('have not down rows',len(not_down_content))
-        content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',\
-                                                           content_save_dir,table)
-        print('have downloade contents rows ',len(content_imgs_downloaded))
-#         content_urls_con.append(imgs_downloaded)
-#         content_urls_not_con.append(imgs_not_downloaded)
-        save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
+
+    #         ua = UserAgent()
+    #         user_agent = ua.ie
+            not_down_content =  get_content_imgs_url(table, engine, content_imgs_urls)
+            print('have not down rows',len(not_down_content))
+            content_imgs_downloaded,imgs_not_downloaded = download_imgs(not_down_content,'title_img_url','title_img_local',\
+                                                               content_save_dir,table)
+            print('have downloade contents rows ',len(content_imgs_downloaded))
+    #         content_urls_con.append(imgs_downloaded)
+    #         content_urls_not_con.append(imgs_not_downloaded)
+            save_to_db(content_imgs_downloaded,preview_imgs_downloaded,img_table,engine)
+        except:
+            continue
     
         
